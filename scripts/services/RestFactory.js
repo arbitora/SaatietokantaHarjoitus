@@ -5,9 +5,21 @@ angular.module("SaatietoApp").factory("RestFactory", function($http, $q){
 	SaatiedotObject.haePvm = function()
 	{
 		var deferred = $q.defer();
-		var strictURL = "http://home.tamk.fi/~e5tjokin/Web-ohjelmointi/Harjoitus/slim_api/index.php/dates";
 		var softURL = "slim_api/index.php/dates";
-		$http.get(strictURL).then(function(response){
+		$http.get(softURL).then(function(response){
+			deferred.resolve(response.data.data)
+		}, function(err){
+				deferred.reject("Error: " + err.data);
+		});
+		return deferred.promise;
+	};
+	
+	// Hakee tietokannasta kaikki otsikot, joilla tiedot voidaan j‰rjest‰‰.
+	SaatiedotObject.haeOtsikot = function()
+	{
+		var deferred = $q.defer();
+		var softURL = "slim_api/index.php/headers";
+		$http.get(softURL).then(function(response){
 			deferred.resolve(response.data.data)
 		}, function(err){
 				deferred.reject("Error: " + err.data);
@@ -20,9 +32,8 @@ angular.module("SaatietoApp").factory("RestFactory", function($http, $q){
 	SaatiedotObject.haeSaatiedot = function(filters)
 	{
 		var deferred = $q.defer();
-		var strictURL = "http://home.tamk.fi/~e5tjokin/Web-ohjelmointi/Harjoitus/slim_api/index.php/saatiedot";
 		var softURL = "slim_api/index.php/saatiedot";
-		$http.post(strictURL, filters).then(function(response){
+		$http.post(softURL, filters).then(function(response){
 			deferred.resolve(response.data.data)
 		}, function(err){
 				deferred.reject("Error: " + err.data);
@@ -35,9 +46,8 @@ angular.module("SaatietoApp").factory("RestFactory", function($http, $q){
 	SaatiedotObject.haeSaatilastot = function(filters)
 	{
 		var deferred = $q.defer();
-		var strictURL = "http://home.tamk.fi/~e5tjokin/Web-ohjelmointi/Harjoitus/slim_api/index.php/saatilastot";
 		var softURL = "slim_api/index.php/saatilastot";
-		$http.post(strictURL, filters).then(function(response){
+		$http.post(softURL, filters).then(function(response){
 			deferred.resolve(response.data.data[0])
 		}, function(err){
 				deferred.reject("Error: " + err.data);

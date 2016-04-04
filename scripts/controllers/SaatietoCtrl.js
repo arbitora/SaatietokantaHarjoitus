@@ -1,10 +1,23 @@
 // S‰‰tietojen kontrolleri.
-angular.module("SaatietoApp").controller("SaatietoCtrl", function($scope, $http, RestFactory, DateService){
+angular.module("SaatietoApp").controller("SaatietoCtrl", function($scope, $http, RestFactory, DateService, FilterService){
+	 
+	 $scope.haeOtsikot = function()
+	 {
+		var otsikkoLupaus = RestFactory.haeOtsikot();
+		otsikkoLupaus.then(function(response){
+			$scope.otsikot = response;
+			//console.log("Haku tehty!", response);
+		}, function(error){
+			console.log("OtsikkoHaku Error: ", error);
+		});
+	 };
 	 
 	 $scope.haeSaatiedot = function()
 	 {
 		var filters =
 		{
+			// TODO Yhdist‰ FilterServiceen.
+			
 			// Rajaa hakua p‰iv‰m‰‰rill‰ (aloitus ja lopetus).
 			//alkpvm: DateService.valittu_minPVM, 
 			//loppvm: DateService.valittu_maxPVM, 
@@ -27,53 +40,15 @@ angular.module("SaatietoApp").controller("SaatietoCtrl", function($scope, $http,
 		
 		saatietoLupaus.then(function(response){
 			$scope.saatiedot = response;
-			console.log("Haku tehty!", response);
+			//console.log("Haku tehty!", response);
 		}, function(error){
 			console.log("SaatiedotHae Error: ", error);
 		});
 		
 	 };
 	 
-	 // ng-repeat saatiedot tulostus.
+	 // ng-repeat otsikko ja saatiedot tulostus.
+	 $scope.haeOtsikot();
 	 $scope.haeSaatiedot();
-	 
-	 
-	 $scope.haetSaaLaskelmat = function()
-	 {
-		var filters =
-		{
-			// Rajaa hakua p‰iv‰m‰‰rill‰ (aloitus ja lopetus).
-			//alkpvm: DateService.valittu_minPVM, 
-			//loppvm: DateService.valittu_maxPVM, 
-			
-			//minLampotila: $scope.minLampotila,
-			//maxLampotila: $scope.maxLampotila,
-			//lampotilaEhto: $scope.lampotilaEhto,
 
-			//minTuulennopeus: $scope.minTuulennopeus,
-			//maxTuulennopeus: $scope.maxTuulennopeus,
-
-			//minSademaara: $scope.minSademaara,
-			//maxSademaara: $scope.maxSademaara,
-		};
-		
-		// L‰hetet‰‰n s‰‰nhakupyyntˆ annetuilla parametreill‰:
-		var saatilastoLupaus = RestFactory.haeSaatilastot(filters);
-		
-		saatilastoLupaus.then(function(response){
-			$scope.saatilasto = response;
-			console.log("Haku tehty!", response);
-		}, function(error){
-			console.log("SaaLaskutHae Error: ", error);
-		});
-		
-	 };
-	 
-	 
-	 // tulostaa tietoja MAX MIN AVG -taulukkoon
-	 $scope.haetSaaLaskelmat();
-	 
-	 
-	 
-	 
  });

@@ -17,6 +17,14 @@ $app->get('/dates',function (Request $request, Response $response) {
     return $response;
 });
 
+// Hakee otsikko tiedot joilla saatietoja voidaan järjestää.
+$app->get('/headers',function (Request $request, Response $response) {
+    $json = getHeaders();
+    $response->getBody()->write($json);
+    return $response;
+});
+
+
 $app->post('/saatiedot',function (Request $request, Response $response) {
 	$body = $request->getBody();
 	$params = json_decode($body);

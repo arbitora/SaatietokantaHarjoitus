@@ -2,7 +2,9 @@
 // minDate ja maxDate funktiot rajoittavat valittavat p‰iv‰m‰‰r‰t.
 angular.module("SaatietoApp").controller("DateCtrl", function($scope, RestFactory, DateService) {
 	$scope.myDate = new Date(); // Valittu p‰iv‰m‰‰r‰.
-	DateService.valittu_minPVM = $scope.myDate
+	DateService.valittu_minPVM = $scope.alkupvm;
+	DateService.valittu_maxPVM = $scope.loppvm;
+	
 	// Haetaan minimi ja maksimi p‰iv‰m‰‰r‰t tietokannasta.
 	$scope.DateMinMax = function(){
 		var pvmLupaus = RestFactory.haePvm();
@@ -16,4 +18,5 @@ angular.module("SaatietoApp").controller("DateCtrl", function($scope, RestFactor
 		});
 	};
   
+	$scope.DateMinMax();
 });

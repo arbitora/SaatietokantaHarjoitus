@@ -15,6 +15,23 @@ function getDates() {
     }
 }
 
+// Palauttaa tietokannan taulukon otsikot.
+function getHeaders() {
+    $sql="SELECT COLUMN_NAME FROM information_schema.columns
+	WHERE table_name = 'saatilasto_harj' ORDER BY ordinal_position;";
+    try {
+        $db = getDB();
+        $stmt = $db->query($sql);
+        $object = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $db = null;
+		echo $stmt->debugDumpParams().'\n'.var_export($stmt->errorInfo()); // DEBUG
+        return '{"data": ' . json_encode($object, JSON_UNESCAPED_UNICODE ). '}';
+        } catch(PDOException $e) {
+            return '{"error":{"text":'. $e->getMessage() .'}}';
+    }
+}
+
+
 // Luo annetuista parametreistä rajatun haku pyynnön.
 // $params on JSON_rajaus tyylinen JSON tiedosto, josta katsotaan tehtävät rajaukset.
 function buildSQLquery($params)

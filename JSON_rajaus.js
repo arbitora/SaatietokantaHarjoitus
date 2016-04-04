@@ -30,7 +30,7 @@ var haku =
 		NÄITÄ ARVOJA EI KÄYTETÄ MAX MIN AVG -TIETOJEN HAUSSA.
 			jarjestaja kertoo minkä mukaan järjestetään.
 			arvot voivat olla seuraavat:
-			id, pvm, kellonaika, tuulennopeus1, tuulennopeus2, 
+			id, pvm, kellonaika, tuulennopeus1, tuulennopeus2, tuulensuunta1, tuulensuunta2, 
 		
 			jarjestys vaikuttaa haetaanko data
 			Nousevassa vai Laskevassa järjestyksessä näkyville.
