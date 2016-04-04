@@ -1,0 +1,135 @@
+﻿<div class="container">
+	
+	<!-- Päivämäärän valitsin -->
+	<div ng-controller="DateCtrl" style='padding: 40px;' ng-cloak>
+	<md-content>
+		<form name="myForm">
+			<md-datepicker name="alkpvm" ng-model="myDate" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate"></md-datepicker>
+			<div class="validation-messages" ng-messages="myForm.dateField.$error">
+				<div ng-message="valid">The entered value is not a date!</div>
+				<div ng-message="mindate">Date is too early!</div>
+				<div ng-message="maxdate">Date is too late!</div>
+			</div>
+		</form>
+	</md-content>
+	</div>
+	
+		<!-- Säätilastotietojen maksimi-, minimi- ja keskiarvot. -->
+			<table class="table table-striped" id="saaMINMAXAVG">
+				<tr class="title">
+					<td>Nimike</td>
+					<td>MAX</td>
+					<td>MIN</td>
+					<td>AVG</td>
+				</tr>
+				<tr>
+					<td class="title">Tuulennopeus 1</td>
+					<td class="table_data">{{saatilasto.MAXtuulennopeus1}}</td>
+					<td class="table_data">{{saatilasto.MINtuulennopeus1}}</td>
+					<td class="table_data">{{saatilasto.AVGtuulennopeus1}}</td>
+				</tr>
+				<tr>
+					<td class="title">Tuulennopeus 2</td>
+					<td class="table_data">{{saatilasto.MAXtuulennopeus2}}</td>
+					<td class="table_data">{{saatilasto.MINtuulennopeus2}}</td>
+					<td class="table_data">{{saatilasto.AVGtuulennopeus2}}</td>
+				</tr>
+					<td class="title">Tuulensuunta 1</td>
+					<td class="table_data">{{saatilasto.MAXtuulensuunta1}}</td>
+					<td class="table_data">{{saatilasto.MINtuulensuunta1}}</td>
+					<td class="table_data">{{saatilasto.AVGtuulensuunta1}}</td>
+				</tr>
+				<tr>
+					<td class="title">Tuulensuunta 2</td>
+					<td class="table_data">{{saatilasto.MAXtuulensuunta2}}</td>
+					<td class="table_data">{{saatilasto.MINtuulensuunta2}}</td>
+					<td class="table_data">{{saatilasto.AVGtuulensuunta2}}</td>
+				</tr>
+				<tr>
+					<td class="title">Sademäärä 1</td>
+					<td class="table_data">{{saatilasto.MAXsademaara1}}</td>
+					<td class="table_data">{{saatilasto.MINsademaara1}}</td>
+					<td class="table_data">{{saatilasto.AVGsademaara1}}</td>
+				</tr>
+				<tr>
+					<td class="title">Sademäärä 2</td>
+					<td class="table_data">{{saatilasto.MAXsademaara2}}</td>
+					<td class="table_data">{{saatilasto.MINsademaara2}}</td>
+					<td class="table_data">{{saatilasto.AVGsademaara2}}</td>
+				</tr>
+				<tr>
+					<td class="title">Ulkolämpötila 1</td>
+					<td class="table_data">{{saatilasto.MAXulkolampotila1}}</td>
+					<td class="table_data">{{saatilasto.MINulkolampotila1}}</td>
+					<td class="table_data">{{saatilasto.AVGulkolampotila1}}</td>
+				</tr>
+				<tr>
+					<td class="title">Ulkolämpötila 2</td>
+					<td class="table_data">{{saatilasto.MAXulkolampotila2}}</td>
+					<td class="table_data">{{saatilasto.MINulkolampotila2}}</td>
+					<td class="table_data">{{saatilasto.AVGulkolampotila2}}</td>
+				</tr>
+				<tr>
+					<td class="title">Ulkoilmankosteus</td>
+					<td class="table_data">{{saatilasto.MAXulkoilmankosteus}}</td>
+					<td class="table_data">{{saatilasto.MINulkoilmankosteus}}</td>
+					<td class="table_data">{{saatilasto.AVGulkoilmankosteus}}</td>
+				</tr>
+				<tr>
+					<td class="title">Sisäilmankosteus</td>
+					<td class="table_data">{{saatilasto.MAXsisailmankosteus}}</td>
+					<td class="table_data">{{saatilasto.MINsisailmankosteus}}</td>
+					<td class="table_data">{{saatilasto.AVGsisailmankosteus}}</td>
+				</tr>
+				<tr>
+					<td class="title">Sisäilmanpaine</td>
+					<td class="table_data">{{saatilasto.MAXsisailmanpaine}}</td>
+					<td class="table_data">{{saatilasto.MINsisailmanpaine}}</td>
+					<td class="table_data">{{saatilasto.AVGsisailmanpaine}}</td>
+				</tr>
+				<tr>
+					<td class="title">Ulkoilmanpaine</td>
+					<td class="table_data">{{saatilasto.MAXulkoilmanpaine}}</td>
+					<td class="table_data">{{saatilasto.MINulkoilmanpaine}}</td>
+					<td class="table_data">{{saatilasto.AVGulkoilmanpaine}}</td>
+				</tr>
+				</div>
+			</table>
+	</div>
+		<!-- Säätilastotiedot taulukko -->		
+			<table class="table table-striped" id="saatiedotTaulukko">
+				<tr class="title">
+					<td>ID</td>
+					<td>Päivämäärä</td>
+					<td>Kellonaika</td>
+					<td>Tuulennopeus 1</td>
+					<td>Tuulennopeus 2</td>
+					<td>Tuulensuunta 1</td>
+					<td>Tuulensuunta 2</td>
+					<td>Sademäärä 1</td>
+					<td>Sademäärä 2</td>
+					<td>Ulkolämpötila 1</td>
+					<td>Ulkolämpötila 2</td>
+					<td>Ulkoilmankosteus</td>					
+					<td>Sisäilmankosteus</td>
+					<td>Sisäilmanpaine</td>
+					<td>Ulkoilmanpaine</td>
+				</tr>
+				<tr ng-repeat="saatieto in saatiedot" class="table_data">
+					<td>{{saatieto.id}}</td>
+					<td>{{saatieto.pvm}}</td>
+					<td>{{saatieto.kellonaika}}</td>
+					<td>{{saatieto.tuulennopeus1}}</td>
+					<td>{{saatieto.tuulennopeus2}}</td>
+					<td>{{saatieto.tuulensuunta1}}</td>
+					<td>{{saatieto.tuulensuunta2}}</td>
+					<td>{{saatieto.sademaara1}}</td>
+					<td>{{saatieto.sademaara2}}</td>
+					<td>{{saatieto.ulkolampotila1}}</td>
+					<td>{{saatieto.ulkolampotila2}}</td>
+					<td>{{saatieto.ulkoilmankosteus}}</td>
+					<td>{{saatieto.sisailmankosteus}}</td>
+					<td>{{saatieto.sisailmanpaine}}</td>
+					<td>{{saatieto.ulkoilmanpaine}}</td>
+				</tr>
+			</table>

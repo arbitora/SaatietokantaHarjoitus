@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html ng-app="SaatietoApp">
+<head>
+<!-- Suomenkielen asetus -->
+<meta charset="UTF-8">
+<!-- Asettaa sivun toimimaan kännykän näytölle sopivaksi -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Bootstrapin lisääminen -->
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<!-- Eritys tyylitiedosto -->
+<link rel="stylesheet" type="text/css" href="style/styles.css">
+<!-- Angular koodien lisäys
+1. Itse AngularJS pohja.
+2. Angular-route, mahdollistaa single-page.
+3. Angular-messages, päivämäärä valitsijan erityisviestit.
+4. Angular-material, päivämäärä valitsimen ulkonäköä ominaisuuksia. -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+ <!-- Angular Material Library -->
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+<!-- Angular Material style sheet -->
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+<!-- Angular kooditiedostot -->
+<script src="scripts/SaatietoApp.js"></script>
+<script src="scripts/controllers/BodyCtrl.js"></script>
+<script src="scripts/controllers/DateCtrl.js"></script>
+<script src="scripts/controllers/SaatietoCtrl.js"></script>
+<script src="scripts/services/DateService.js"></script>
+<script src="scripts/services/RestFactory.js"></script>
+</head>
+<body ng-controller="BodyCtrl">
+
+<!-- Sivuston otsikko ja menu -->
+<div class="container">
+<br><br><h3>Säätietokanta Sivusto</h3>
+</div>
+
+<!-- Sivuston näkymä -->
+<div class="container-fluid" ng-view></div>
+
+</body>
+</html>

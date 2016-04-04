@@ -1,0 +1,1 @@
+angular.module("SaatietoApp", ["ngRoute", "ngMessages", "ngMaterial"]);
