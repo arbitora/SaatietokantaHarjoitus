@@ -2,21 +2,8 @@
 		<!-- Säätilastotiedot taulukko -->		
 			<table class="table table-striped" id="saatiedotTaulukko">
 				<tr class="title">
-					<td>ID</td>
-					<td>Päivämäärä</td>
-					<td>Kellonaika</td>
-					<td>Tuulennopeus 1</td>
-					<td>Tuulennopeus 2</td>
-					<td>Tuulensuunta 1</td>
-					<td>Tuulensuunta 2</td>
-					<td>Sademäärä 1</td>
-					<td>Sademäärä 2</td>
-					<td>Ulkolämpötila 1</td>
-					<td>Ulkolämpötila 2</td>
-					<td>Ulkoilmankosteus</td>					
-					<td>Sisäilmankosteus</td>
-					<td>Sisäilmanpaine</td>
-					<td>Ulkoilmanpaine</td>
+				<td ng-repeat="otsikko in otsikot" ng-click="sortBy(otsikko.COLUMN_NAME)">{{otsikko.COLUMN_NAME}}</td>
+				</tr>
 				</tr>
 				<tr ng-repeat="saatieto in saatiedot" class="table_data">
 					<td>{{saatieto.id}}</td>

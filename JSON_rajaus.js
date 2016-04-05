@@ -6,15 +6,8 @@ var haku =
 		loppvm: $scope.loppvm, 
 		
 		// Lämpötilarajaus minimi ja maksimilämpötiloilla.
-		/*
-		lampotilaEhto vaihtoehdot:
-		0 = Vain Sisälämpötilan rajaus.
-		1 = Vain Ulkolämpötilan rajaus.
-		2 = Rajataan kummatkin lämpötilat.
-		*/
 		minLampotila: $scope.minLampotila,
 		maxLampotila: $scope.maxLampotila,
-		lampotilaEhto: $scope.lampotilaEhto,
 
 		// Tuulennopeuden rajaus minimi ja maksimi arvoilla.
 		minTuulennopeus: $scope.minTuulennopeus,

@@ -1,4 +1,4 @@
-// S‰‰tietojen kontrolleri.
+Ôªø// S√§√§tietojen kontrolleri.
 angular.module("SaatietoApp").controller("SaatietoCtrl", function($scope, $http, RestFactory, DateService, FilterService){
 	 
 	 $scope.haeOtsikot = function()
@@ -16,26 +16,26 @@ angular.module("SaatietoApp").controller("SaatietoCtrl", function($scope, $http,
 	 {
 		var filters =
 		{
-			// TODO Yhdist‰ FilterServiceen.
+			// TODO Yhdist√§ FilterServiceen.
 			
-			// Rajaa hakua p‰iv‰m‰‰rill‰ (aloitus ja lopetus).
-			//alkpvm: DateService.valittu_minPVM, 
-			//loppvm: DateService.valittu_maxPVM, 
+			// Rajaa hakua p√§iv√§m√§√§rill√§ (aloitus ja lopetus).
+			"alkpvm": DateService.valittu_minPVM, 
+			"loppvm": DateService.valittu_maxPVM, 
 			
-			//minLampotila: $scope.minLampotila,
-			//maxLampotila: $scope.maxLampotila,
-			//lampotilaEhto: $scope.lampotilaEhto,
+			//"minLampotila": FilterService.minLampotila,
+			//"maxLampotila": FilterService.maxLampotila,
+			//"lampotilaEhto": FilterService.lampotilaEhto,
 
-			//minTuulennopeus: $scope.minTuulennopeus,
-			//maxTuulennopeus: $scope.maxTuulennopeus,
+			//"minTuulennopeus": FilterService.minTuulennopeus,
+			//"maxTuulennopeus": FilterService.maxTuulennopeus,
 
-			//minSademaara: $scope.minSademaara,
-			//maxSademaara: $scope.maxSademaara,
-			"jarjestaja": "pvm",
-			"jarjestys": "ASC"
+			//"minSademaara": FilterService.minSademaara,
+			//"maxSademaara": FilterService.maxSademaara,
+			"jarjestaja": FilterService.jarjestaja,
+			"jarjestys": FilterService.jarjestys
 		};
-		
-		// L‰hetet‰‰n s‰‰nhakupyyntˆ annetuilla parametreill‰:
+		console.log("Filters JSON: ", filters);
+		// L√§hetet√§√§n s√§√§nhakupyynt√∂ annetuilla parametreill√§:
 		var saatietoLupaus = RestFactory.haeSaatiedot(filters);
 		
 		saatietoLupaus.then(function(response){
@@ -47,8 +47,34 @@ angular.module("SaatietoApp").controller("SaatietoCtrl", function($scope, $http,
 		
 	 };
 	 
+	 
 	 // ng-repeat otsikko ja saatiedot tulostus.
 	 $scope.haeOtsikot();
 	 $scope.haeSaatiedot();
+	 
+	 // Muuttaa taulukon j√§rjestyksen.
+	 $scope.sortBy = function(clickedOtsikko)
+	 {
+		 console.log("Klikattu otsikko: ", clickedOtsikko);
+		 // Tarkistaa aluksi onko klikattu otsikko sama kuin viimeksi klikattu.
+		 if (clickedOtsikko === FilterService.jarjestaja)
+		 {
+			 // Muutetaan vain j√§rjestyst√§, jos ASC -> DESC tai jos DESC -> ASC.
+			 if (FilterService.jarjestys === "ASC")
+				 FilterService.jarjestys = "DESC";
+			 else
+				 FilterService.jarjestys = "ASC";
+		 }
+		 else
+		 {
+			 // Jos klikattu otsikko ei sama kuin viimeksi, asetetaan se uudeksi j√§rjest√§j√§ksi
+			 // ja j√§rjestykseksi ASC.
+			FilterService.jarjestaja = clickedOtsikko;
+			FilterService.jarjestys = "ASC";			 
+		 }
+		 
+		 // Kutsutaan tiedot uudestaan uusilla j√§rjestyksill√§.
+		$scope.haeSaatiedot();
+	 };
 
  });

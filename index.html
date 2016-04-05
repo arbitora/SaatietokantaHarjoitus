@@ -11,31 +11,29 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 <!-- Eritys tyylitiedosto -->
-<link rel="stylesheet" type="text/css" href="style/styles.css">
+<link rel="stylesheet" type="text/css" href="style/styles.css" />
+<link href="style/angular-datepicker.css" rel="stylesheet" type="text/css" />
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 <!-- Angular koodien lisäys
 1. Itse AngularJS pohja.
 2. Angular-route, mahdollistaa single-page.
-3. Angular-messages, päivämäärä valitsijan erityisviestit.
-4. Angular-material, päivämäärä valitsimen ulkonäköä ominaisuuksia. -->
+-->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
- <!-- Angular Material Library -->
-<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
-<!-- Angular Material style sheet -->
-<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+<script src="scripts/imports/ui-bootstrap-tpls-1.2.5.min.js"></script>
+
 <!-- Angular kooditiedostot -->
 <script src="scripts/SaatietoApp.js"></script>
 <script src="scripts/controllers/BodyCtrl.js"></script>
-<script src="scripts/controllers/DateCtrl.js"></script>
+<script src="scripts/controllers/DialogCtrl.js"></script>
+<script src="scripts/controllers/RajoitaCtrl.js"></script>
 <script src="scripts/controllers/SaatietoCtrl.js"></script>
 <script src="scripts/controllers/SaatilastoCtrl.js"></script>
 <script src="scripts/services/DateService.js"></script>
 <script src="scripts/services/FilterService.js"></script>
 <script src="scripts/services/RestFactory.js"></script>
-
+<script src="scripts/imports/angular-datepicker.js"></script>
 
 </head>
 <body ng-controller="BodyCtrl">
@@ -54,9 +52,9 @@
 		</div>
 			<div class="collapse navbar-collapse navbar-custom" id="my_menu">
 				<ul class="nav navbar-nav"> 
-					<li ng-class="{active: isActive('/saatiedot')}"><a href="#/main">Säätiedot</a></li>
-					<li ng-class="{active: isActive('/saatilastot')}"><a href="#/orjat">Säätilastot</a></li>
-					<li><button type="FilterSaa" class="btn btn-warning" data-toggle="modal" data-target="#FilterSaa" ng-click="startFilter()"><span class="glyphicon glyphicon-search"></span> Rajoita säätietoja</button></li>	
+					<li ng-class="{active: isActive('/saatiedot')}"><a href="#/saatiedot">Säätiedot</a></li>
+					<li ng-class="{active: isActive('/saatilastot')}"><a href="#/saatilastot">Säätilastot</a></li>
+					<li ng-class="{active: isActive('/rajoita')}"><a href="#/rajoita"><span class="glyphicon glyphicon-search"></span> Rajoita säätietoja</a></li>
 				</ul>
 			</div>
 			
@@ -67,76 +65,6 @@
 <!-- Sivuston näkymä -->
 <div class="container-fluid" ng-view></div>
 
-
-<!-- Modal ikkuna rajaukselle -->
-<!-- TODO Modal Ikkunan vaihtoehdot -->
-<div class="modal fade" id="FilterSaa" tabindex="-1" role="dialog" aria-labelledby="FilterSaaL">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="FilterSaaL">Säätietojen rajaaminen</h4>
-      </div>
-      <div class="modal-body">
-	  <!-- Aloittaa Modal/Popupin bodyn muokkauksen. -->
-	  <table class="table table-bordered">
-	  	<!-- Päivämäärän valitsin -->
-		<div ng-controller="DateCtrl" style='padding: 40px;' ng-cloak>
-		<md-content>
-		<form name="myForm">
-		<tr>
-			<td>
-				<!-- Aloitus päivämäärä -->
-				Valitse aloituspäivämäärä:
-				<md-datepicker name="alkpvm" ng-model="alkpvm" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate"></md-datepicker>
-				<div class="validation-messages" ng-messages="myForm.dateField.$error">
-					<div ng-message="valid">The entered value is not a date!</div>
-					<div ng-message="mindate">Date is too early!</div>
-					<div ng-message="maxdate">Date is too late!</div>
-				</div>
-			</td>
-			<td>			
-				<!-- Lopetus päivämäärä -->
-				Valitse lopetuspäivämäärä:
-				<md-datepicker name="loppvm" ng-model="loppvm" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate"></md-datepicker>
-				<div class="validation-messages" ng-messages="myForm.dateField.$error">
-					<div ng-message="valid">The entered value is not a date!</div>
-					<div ng-message="mindate">Date is too early!</div>
-					<div ng-message="maxdate">Date is too late!</div>
-				</div>
-			</td>
-		</tr>
-		<tr>
-			<td>			
-				<!-- Minimi lämpötila -->
-				
-						
-				<!-- Maksimi lämpötila -->
-						
-				<!-- Lämpötilaehto -->
-						
-				<!-- Minimi tuulennopeus -->
-						
-				<!-- Maksimi tuulennopeus -->
-						
-				<!-- Minimi sademaara -->
-						
-				<!-- Maksimi sademaara -->
-						
-				<!-- Järjestys -->
-						
-		</form>
-		</md-content>
-		</div>
-		</table>
-		</div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="filterSaaTietoja()">Rajaa hakua</button>
-		<button type="button" class="btn btn-warning" data-dismiss="modal">Peruuta</button>
-      </div>
-    </div>
-  </div>
-</div>
 </body>
 </html>
 

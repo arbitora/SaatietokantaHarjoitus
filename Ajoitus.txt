@@ -1,0 +1,29 @@
+Päivämäärä: Sunnuntai 3.4.2016
+Klo: 15:00 - 18:00
+Tunnit yht: 3h
+Tiedot:
+Bootstrap .html tiedosto jossa taulukko formatoitu kohdilleen
+ja Slim-PHP Framework pohja aseteltu. JSON filter asetusten pohja suunnittelu.
+
+Päivämäärä: Sunnuntai 4.4.2016
+Klo: 1:00 - 9:00
+Tunnit yht: 8h
+Tiedot:
+AngularJS pohja rakennus (tiedosto hierarkian toimintoon saaminen), Slim-PHP haku toiminnot toimintaan.
+SinglePage  views.html tiedostojen teko sekä tietojen välitys Angular kontrollereiden välillä,
+pohja toiminnot valmiina toiminnassa.
+GitHub toiminto:
+https://github.com/arbitora/SaatietokantaHarjoitus
+
+Päivämäärä: Sunnuntai 4.4.2016
+Klo: 21:00 - 08:00
+Tunnit yht: 11h
+Tiedot:
+Slim-PHP framework osittainen poiskäyttö.
+Säätietojen haku omilla PHP tiedostoilla, loput Slim-PHP tiedostoilla.
+Sivusto eri vieweihin, rajoitus näkymän pohja.
+Säätiedot ja säätilasto näkymät toimintakunnossa.
+DatePickerin ihmettelyä, vaihtotoiseen datepickeriin.
+Varoitus viesti datepickerin vääristä valinnoista.
+GitHub toiminto:
+https://github.com/arbitora/SaatietokantaHarjoitus

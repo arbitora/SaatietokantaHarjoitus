@@ -1,1 +1,1 @@
-angular.module("SaatietoApp", ["ngRoute", "ngMessages", "ngMaterial"]);
+angular.module("SaatietoApp", ["ngRoute", '720kb.datepicker', 'ui.bootstrap', 'ngAnimate']);

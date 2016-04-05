@@ -1,0 +1,82 @@
+﻿<div class="container">
+	  <!-- Aloittaa Modal/Popupin bodyn muokkauksen. -->
+	  <table class="table table-bordered">
+	  	<!-- Päivämäärän valitsin -->
+		<form name="myForm">
+		<tr>
+			<td>
+				<!-- Aloitus päivämäärä -->
+				Valitse aloitus päivämäärä:
+				<datepicker date-set="{{default_alkpvm.toString()}}"
+				date-min-limit="{{minDate}}"
+				date-max-limit="{{maxDate}}"
+				date-format="yyyy-MM-dd">
+				<input ng-model="alkpvm" type="text">
+				</datepicker>
+			</td>
+			<td>			
+				<!-- Lopetus päivämäärä -->
+				Valitse lopetus päivämäärä:
+				<datepicker date-set="{{default_loppvm.toString()}}"
+				date-min-limit="{{minDate}}"
+				date-max-limit="{{maxDate}}"
+				date-format="yyyy-MM-dd">
+				<input ng-model="loppvm" type="text">
+				</datepicker>
+			</td>
+		</tr>
+		<tr>
+			<td>			
+				<!-- Minimi lämpötila -->
+				
+			</td>
+		</tr>			
+		<tr>
+			<td>
+				<!-- Maksimi lämpötila -->
+				
+			</td>
+		</tr>
+		<tr>
+			<td>						
+				<!-- Lämpötilaehto -->
+				
+			</td>
+		</tr>
+		<tr>
+			<td>						
+				<!-- Minimi tuulennopeus -->
+				
+			</td>
+		</tr>
+		<tr>
+			<td>						
+				<!-- Maksimi tuulennopeus -->
+				
+			</td>
+		</tr>				
+		<tr>
+			<td>						
+				<!-- Minimi sademaara -->
+				
+			</td>
+		</tr>
+		<tr>
+			<td>						
+				<!-- Maksimi sademaara -->
+				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="submit" value="Rajaa hakua" class="btn btn-primary"
+				ng-attr-data-target="{{ myform.$valid === true ? '#modal' : '#ERROR'}}" data-dismiss="{{ myform.$valid === true ? 'modal' : ''}}"
+				ng-click="filterSaaTietoja()">
+				<button type="button" class="btn btn-warning" ng-click="$back()">Palaa takaisin</button>
+		</td>
+		</tr>
+		</form>
+		
+		</div>
+		</table>
+		</div>

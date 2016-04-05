@@ -7,7 +7,7 @@ angular.module("SaatietoApp").factory("RestFactory", function($http, $q){
 		var deferred = $q.defer();
 		var softURL = "slim_api/index.php/dates";
 		$http.get(softURL).then(function(response){
-			deferred.resolve(response.data.data)
+			deferred.resolve(response.data)
 		}, function(err){
 				deferred.reject("Error: " + err.data);
 		});
@@ -20,7 +20,7 @@ angular.module("SaatietoApp").factory("RestFactory", function($http, $q){
 		var deferred = $q.defer();
 		var softURL = "slim_api/index.php/headers";
 		$http.get(softURL).then(function(response){
-			deferred.resolve(response.data.data)
+			deferred.resolve(response.data)
 		}, function(err){
 				deferred.reject("Error: " + err.data);
 		});
@@ -32,7 +32,7 @@ angular.module("SaatietoApp").factory("RestFactory", function($http, $q){
 	SaatiedotObject.haeSaatiedot = function(filters)
 	{
 		var deferred = $q.defer();
-		var softURL = "slim_api/index.php/saatiedot";
+		var softURL = "slim_api/getSaatiedot.php";
 		$http.post(softURL, filters).then(function(response){
 			deferred.resolve(response.data.data)
 		}, function(err){
@@ -46,9 +46,9 @@ angular.module("SaatietoApp").factory("RestFactory", function($http, $q){
 	SaatiedotObject.haeSaatilastot = function(filters)
 	{
 		var deferred = $q.defer();
-		var softURL = "slim_api/index.php/saatilastot";
+		var softURL = "slim_api/getSaatilastot.php";
 		$http.post(softURL, filters).then(function(response){
-			deferred.resolve(response.data.data[0])
+			deferred.resolve(response.data)
 		}, function(err){
 				deferred.reject("Error: " + err.data);
 		});
