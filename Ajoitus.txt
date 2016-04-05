@@ -12,7 +12,7 @@ Tiedot:
 AngularJS pohja rakennus (tiedosto hierarkian toimintoon saaminen), Slim-PHP haku toiminnot toimintaan.
 SinglePage  views.html tiedostojen teko sekä tietojen välitys Angular kontrollereiden välillä,
 pohja toiminnot valmiina toiminnassa.
-GitHub toiminto:
+GitHub lisätty:
 https://github.com/arbitora/SaatietokantaHarjoitus
 
 Päivämäärä: Sunnuntai 4.4.2016
@@ -25,13 +25,13 @@ Sivusto eri vieweihin, rajoitus näkymän pohja.
 Säätiedot ja säätilasto näkymät toimintakunnossa.
 DatePickerin ihmettelyä, vaihtotoiseen datepickeriin.
 Varoitus viesti datepickerin vääristä valinnoista.
-GitHub toiminto:
-https://github.com/arbitora/SaatietokantaHarjoitus
 
 Päivämäärä: Sunnuntai 5.4.2016
-Klo: 16:30 - 22:00
-Tunnit yht: 6.5h
+Klo: 16:30 - 01:00
+Tunnit yht: 8.5h
 Tiedot:
-
-GitHub toiminto:
-https://github.com/arbitora/SaatietokantaHarjoitus
+Korjattu toiminnot.
+Rajaus näkymän valuet rajaavat hakutuloksia sekä
+niiden valuet näkyvät vaikka poistuisi näkymästä.
+Rajauksia lisätessä antaa viestin joko onnistuneesta tai
+epäonnistuneesta syötöstä. Nollaus painike ottaa kaikki arvot pois.

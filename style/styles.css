@@ -29,3 +29,9 @@ table {
 	font-weight: bold;
 	font-size: 14px
 }
+
+.modal-body {
+    white-space: pre-line;
+	position: relative;
+    padding: 15px;
+}

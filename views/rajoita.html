@@ -14,7 +14,7 @@
 					<button type="button" class="btn btn-default" ng-click="openPicker(1)"><i class="glyphicon glyphicon-calendar"></i></button>
 				  </span>
 				</p>
-			<button type="button" class="btn btn-danger" ng-click="nollaaALKPVM()">Nollaa</button>
+			<button type="button" class="btn btn-danger" ng-click="nollaaALKPVM()">Poista rajoitus</button>
 			</td>
 			<td>			
 				<!-- Lopetus päivämäärä -->
@@ -26,7 +26,7 @@
 					<button type="button" class="btn btn-default" ng-click="openPicker(2)"><i class="glyphicon glyphicon-calendar"></i></button>
 				  </span>
 				</p>
-			<button type="button" class="btn btn-danger" ng-click="nollaaLOPPVM()">Nollaa</button>				
+			<button type="button" class="btn btn-danger" ng-click="nollaaLOPPVM()">Poista rajoitus</button>				
 			</td>
 		</tr>
 		<tr>
@@ -34,13 +34,13 @@
 				<!-- Minimi lämpötila -->
 				<label class="filter-SubHeader">Minimi lämpötila:</label>
 				<input type="number" class="ng-pristine ng-untouched ng-valid" ng-model="minLampotila" value="">
-				<button type="button" class="btn btn-danger" ng-click="nollaaMinLampotila()">Nollaa</button>
+				<button type="button" class="btn btn-danger" ng-click="nollaaMinLampotila()">Poista rajoitus</button>
 			</td>
 			<td>
 				<!-- Maksimi lämpötila -->
 				<label class="filter-SubHeader">Maksimi lämpötila:</label>
 				<input type="number" class="ng-pristine ng-untouched ng-valid" ng-model="maxLampotila" value="">
-				<button type="button" class="btn btn-danger" ng-click="nollaaMaxLampotila()">Nollaa</button>
+				<button type="button" class="btn btn-danger" ng-click="nollaaMaxLampotila()">Poista rajoitus</button>
 			</td>
 		</tr>
 		<tr>
@@ -48,13 +48,13 @@
 				<!-- Minimi tuulennopeus -->
 				<label class="filter-SubHeader">Minimi tuulennopeus:</label>
 				<input type="number" class="ng-pristine ng-untouched ng-valid" ng-model="minTuulennopeus" min="0" value="">
-				<button type="button" class="btn btn-danger" ng-click="nollaaMinTuulennopeus()">Nollaa</button>
+				<button type="button" class="btn btn-danger" ng-click="nollaaMinTuulennopeus()">Poista rajoitus</button>
 			</td>
 			<td>						
 				<!-- Maksimi tuulennopeus -->
 				<label class="filter-SubHeader">Maksimi tuulennopeus:</label>
 				<input type="number" class="ng-pristine ng-untouched ng-valid" ng-model="maxTuulennopeus" min="0" value="">
-				<button type="button" class="btn btn-danger" ng-click="nollaaMaxTuulennopeus()">Nollaa</button>				
+				<button type="button" class="btn btn-danger" ng-click="nollaaMaxTuulennopeus()">Poista rajoitus</button>				
 			</td>
 		</tr>				
 		<tr>
@@ -62,19 +62,19 @@
 				<!-- Minimi sademaara -->
 				<label class="filter-SubHeader">Minimi sademäärä:</label>
 				<input type="number" class="ng-pristine ng-untouched ng-valid" ng-model="minSademaara" min="0" value="">			
-				<button type="button" class="btn btn-danger" ng-click="nollaaMinSademaara()">Nollaa</button>	
+				<button type="button" class="btn btn-danger" ng-click="nollaaMinSademaara()">Poista rajoitus</button>	
 			</td>
 			<td>						
 				<!-- Maksimi sademaara -->
 				<label class="filter-SubHeader">Maksimi sademäärä:</label>
 				<input type="number" class="ng-pristine ng-untouched ng-valid" ng-model="maxSademaara" min="0" value="">		
-				<button type="button" class="btn btn-danger" ng-click="nollaaMaxSademaara()">Nollaa</button>					
+				<button type="button" class="btn btn-danger" ng-click="nollaaMaxSademaara()">Poista rajoitus</button>					
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2">
 				<input type="submit" id="submit" value="Rajaa hakua" class="btn btn-primary" ng-click="filterSaaTietoja(myForm.$valid)"/>
-				<button type="button" class="btn btn-danger" ng-click="nollaaKaikki()">Nollaa Kaikki</button>
+				<button type="button" class="btn btn-danger" ng-click="nollaaKaikki()">Poista Kaikki</button>
 				<!--button type="button" class="btn btn-warning" ng-click="$back()">Palaa takaisin</button-->
 			</td>
 		</tr>
