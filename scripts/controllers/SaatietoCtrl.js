@@ -22,15 +22,15 @@ angular.module("SaatietoApp").controller("SaatietoCtrl", function($scope, $http,
 			"alkpvm": DateService.valittu_minPVM, 
 			"loppvm": DateService.valittu_maxPVM, 
 			
-			//"minLampotila": FilterService.minLampotila,
-			//"maxLampotila": FilterService.maxLampotila,
-			//"lampotilaEhto": FilterService.lampotilaEhto,
+			"minLampotila": FilterService.minLampotila,
+			"maxLampotila": FilterService.maxLampotila,
 
-			//"minTuulennopeus": FilterService.minTuulennopeus,
-			//"maxTuulennopeus": FilterService.maxTuulennopeus,
+			"minTuulennopeus": FilterService.minTuulennopeus,
+			"maxTuulennopeus": FilterService.maxTuulennopeus,
 
-			//"minSademaara": FilterService.minSademaara,
-			//"maxSademaara": FilterService.maxSademaara,
+			"minSademaara": FilterService.minSademaara,
+			"maxSademaara": FilterService.maxSademaara,
+			
 			"jarjestaja": FilterService.jarjestaja,
 			"jarjestys": FilterService.jarjestys
 		};

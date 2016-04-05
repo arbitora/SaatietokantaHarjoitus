@@ -3,6 +3,29 @@
 	font-size: 14px;
 }
 
+.table-striped {
+    border: 1px solid #ddd;
+}
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+table, th, td {
+    border: 1px solid #ddd;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    display: table;
+}
+
 .table_data{
 	font-size: 14px;
+}
+
+.filter-SubHeader{
+	font-weight: bold;
+	font-size: 14px
 }

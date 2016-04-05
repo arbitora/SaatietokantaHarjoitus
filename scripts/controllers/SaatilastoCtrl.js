@@ -1,13 +1,6 @@
 ﻿// Säätietojen kontrolleri.
 angular.module("SaatietoApp").controller("SaatilastoCtrl", function($scope, $http, RestFactory, DateService, FilterService){
-	 
-	if (DateService.valittu_minPVM != null && DateService.valittu_maxPVM != null)
-		$scope.aikavali = "Tilastot aikaväliltä " + DateService.valittu_minPVM + " - " + DateService.valittu_maxPVM;
-	else if (DateService.valittu_minPVM != null)
-		$scope.aikavali = "Tilastot aikaväliltä " + DateService.valittu_minPVM +" - ";
-	else if (DateService.valittu_maxPVM != null)
-		$scope.aikavali = "Tilastot aikaväliltä - " + DateService.valittu_maxPVM;
-	 
+
 	 
 	 $scope.haetSaaLaskelmat = function()
 	 {
@@ -19,17 +12,16 @@ angular.module("SaatietoApp").controller("SaatilastoCtrl", function($scope, $htt
 			"alkpvm": DateService.valittu_minPVM, 
 			"loppvm": DateService.valittu_maxPVM, 
 			
-			//minLampotila: $scope.minLampotila,
-			//maxLampotila: $scope.maxLampotila,
-			//lampotilaEhto: $scope.lampotilaEhto,
+			"minLampotila": FilterService.minLampotila,
+			"maxLampotila": FilterService.maxLampotila,
 
-			//minTuulennopeus: $scope.minTuulennopeus,
-			//maxTuulennopeus: $scope.maxTuulennopeus,
+			"minTuulennopeus": FilterService.minTuulennopeus,
+			"maxTuulennopeus": FilterService.maxTuulennopeus,
 
-			//minSademaara: $scope.minSademaara,
-			//maxSademaara: $scope.maxSademaara,
+			"minSademaara": FilterService.minSademaara,
+			"maxSademaara": FilterService.maxSademaara
 		};
-		console.log("Filters : ", filters);
+		console.log("Filters JSON: ", filters);
 		// Lähetetään säänhakupyyntö annetuilla parametreillä:
 		var saatilastoLupaus = RestFactory.haeSaatilastot(filters);
 		
@@ -41,8 +33,17 @@ angular.module("SaatietoApp").controller("SaatilastoCtrl", function($scope, $htt
 		});
 		
 	 };
-	  
+
 	 // tulostaa tietoja MAX MIN AVG -taulukkoon
 	 $scope.haetSaaLaskelmat();
+	 
+	 
+	if (DateService.valittu_minPVM != null && DateService.valittu_maxPVM != null
+	&& DateService.valittu_minPVM != "" && DateService.valittu_maxPVM != "")
+		$scope.aikavali = "Tilastot aikaväliltä " + DateService.valittu_minPVM + " - " + DateService.valittu_maxPVM;
+	else if (DateService.valittu_minPVM != null && DateService.valittu_minPVM != "")
+		$scope.aikavali = "Tilastot aikaväliltä " + DateService.valittu_minPVM +" - ";
+	else if (DateService.valittu_maxPVM != null && DateService.valittu_maxPVM != "")
+		$scope.aikavali = "Tilastot aikaväliltä - " + DateService.valittu_maxPVM;
 	 
  });

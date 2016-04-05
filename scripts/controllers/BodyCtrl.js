@@ -37,9 +37,9 @@ angular.module("SaatietoApp").controller("BodyCtrl", function($scope, $location,
 			DateService.valittu_maxPVM = response[0].MAXpvm;
 			//console.log("PVM Haku tehty! ", response);
 		}, function(error){
-			console.log("OtsikkoHaku Error: ", error);
+			console.log("PVM Haku Error: ", error);
 		});
 	};
-	$scope.haePVM();
-	
+
+	$scope.haePVM();	
 });

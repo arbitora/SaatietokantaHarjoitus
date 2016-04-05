@@ -2,78 +2,81 @@
 	  <!-- Aloittaa Modal/Popupin bodyn muokkauksen. -->
 	  <table class="table table-bordered">
 	  	<!-- Päivämäärän valitsin -->
-		<form name="myForm">
+		<form name="myForm" class="ng-pristine ng-valid" >
 		<tr>
 			<td>
 				<!-- Aloitus päivämäärä -->
-				Valitse aloitus päivämäärä:
-				<datepicker date-set="{{default_alkpvm.toString()}}"
-				date-min-limit="{{minDate}}"
-				date-max-limit="{{maxDate}}"
-				date-format="yyyy-MM-dd">
-				<input ng-model="alkpvm" type="text">
-				</datepicker>
+				<label class="filter-SubHeader">Valitse aloitus päivämäärä:</label>
+				
+				<p class="input-group">
+				  <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="alkpvm" is-open="popup_alkpvm.opened" datepicker-options="dateOptions" ng-required="false" close-text="Close" alt-input-formats="altInputFormats"show-button-bar="false" />
+				  <span class="input-group-btn">
+					<button type="button" class="btn btn-default" ng-click="openPicker(1)"><i class="glyphicon glyphicon-calendar"></i></button>
+				  </span>
+				</p>
+			<button type="button" class="btn btn-danger" ng-click="nollaaALKPVM()">Nollaa</button>
 			</td>
 			<td>			
 				<!-- Lopetus päivämäärä -->
-				Valitse lopetus päivämäärä:
-				<datepicker date-set="{{default_loppvm.toString()}}"
-				date-min-limit="{{minDate}}"
-				date-max-limit="{{maxDate}}"
-				date-format="yyyy-MM-dd">
-				<input ng-model="loppvm" type="text">
-				</datepicker>
+				<label class="filter-SubHeader">Valitse lopetus päivämäärä:</label>
+				
+				<p class="input-group">
+				  <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="loppvm" is-open="popup_loppvm.opened" datepicker-options="dateOptions" ng-required="false" close-text="Close" alt-input-formats="altInputFormats" show-button-bar="false" />
+				  <span class="input-group-btn">
+					<button type="button" class="btn btn-default" ng-click="openPicker(2)"><i class="glyphicon glyphicon-calendar"></i></button>
+				  </span>
+				</p>
+			<button type="button" class="btn btn-danger" ng-click="nollaaLOPPVM()">Nollaa</button>				
 			</td>
 		</tr>
 		<tr>
 			<td>			
 				<!-- Minimi lämpötila -->
-				
+				<label class="filter-SubHeader">Minimi lämpötila:</label>
+				<input type="number" class="ng-pristine ng-untouched ng-valid" ng-model="minLampotila" value="">
+				<button type="button" class="btn btn-danger" ng-click="nollaaMinLampotila()">Nollaa</button>
 			</td>
-		</tr>			
-		<tr>
 			<td>
 				<!-- Maksimi lämpötila -->
-				
-			</td>
-		</tr>
-		<tr>
-			<td>						
-				<!-- Lämpötilaehto -->
-				
+				<label class="filter-SubHeader">Maksimi lämpötila:</label>
+				<input type="number" class="ng-pristine ng-untouched ng-valid" ng-model="maxLampotila" value="">
+				<button type="button" class="btn btn-danger" ng-click="nollaaMaxLampotila()">Nollaa</button>
 			</td>
 		</tr>
 		<tr>
 			<td>						
 				<!-- Minimi tuulennopeus -->
-				
+				<label class="filter-SubHeader">Minimi tuulennopeus:</label>
+				<input type="number" class="ng-pristine ng-untouched ng-valid" ng-model="minTuulennopeus" min="0" value="">
+				<button type="button" class="btn btn-danger" ng-click="nollaaMinTuulennopeus()">Nollaa</button>
 			</td>
-		</tr>
-		<tr>
 			<td>						
 				<!-- Maksimi tuulennopeus -->
-				
+				<label class="filter-SubHeader">Maksimi tuulennopeus:</label>
+				<input type="number" class="ng-pristine ng-untouched ng-valid" ng-model="maxTuulennopeus" min="0" value="">
+				<button type="button" class="btn btn-danger" ng-click="nollaaMaxTuulennopeus()">Nollaa</button>				
 			</td>
 		</tr>				
 		<tr>
 			<td>						
 				<!-- Minimi sademaara -->
-				
+				<label class="filter-SubHeader">Minimi sademäärä:</label>
+				<input type="number" class="ng-pristine ng-untouched ng-valid" ng-model="minSademaara" min="0" value="">			
+				<button type="button" class="btn btn-danger" ng-click="nollaaMinSademaara()">Nollaa</button>	
 			</td>
-		</tr>
-		<tr>
 			<td>						
 				<!-- Maksimi sademaara -->
-				
+				<label class="filter-SubHeader">Maksimi sademäärä:</label>
+				<input type="number" class="ng-pristine ng-untouched ng-valid" ng-model="maxSademaara" min="0" value="">		
+				<button type="button" class="btn btn-danger" ng-click="nollaaMaxSademaara()">Nollaa</button>					
 			</td>
 		</tr>
 		<tr>
-			<td>
-				<input type="submit" value="Rajaa hakua" class="btn btn-primary"
-				ng-attr-data-target="{{ myform.$valid === true ? '#modal' : '#ERROR'}}" data-dismiss="{{ myform.$valid === true ? 'modal' : ''}}"
-				ng-click="filterSaaTietoja()">
-				<button type="button" class="btn btn-warning" ng-click="$back()">Palaa takaisin</button>
-		</td>
+			<td colspan="2">
+				<input type="submit" id="submit" value="Rajaa hakua" class="btn btn-primary" ng-click="filterSaaTietoja(myForm.$valid)"/>
+				<button type="button" class="btn btn-danger" ng-click="nollaaKaikki()">Nollaa Kaikki</button>
+				<!--button type="button" class="btn btn-warning" ng-click="$back()">Palaa takaisin</button-->
+			</td>
 		</tr>
 		</form>
 		

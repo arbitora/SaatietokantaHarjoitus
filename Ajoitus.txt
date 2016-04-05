@@ -27,3 +27,11 @@ DatePickerin ihmettelyä, vaihtotoiseen datepickeriin.
 Varoitus viesti datepickerin vääristä valinnoista.
 GitHub toiminto:
 https://github.com/arbitora/SaatietokantaHarjoitus
+
+Päivämäärä: Sunnuntai 5.4.2016
+Klo: 16:30 - 22:00
+Tunnit yht: 6.5h
+Tiedot:
+
+GitHub toiminto:
+https://github.com/arbitora/SaatietokantaHarjoitus
