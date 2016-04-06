@@ -1,11 +1,17 @@
 ﻿// Säätietojen kontrolleri.
 angular.module("SaatietoApp").controller("SaatietoCtrl", function($scope, $http, RestFactory, DateService, FilterService){
 	 
+	$scope.style = [];
+	 
 	 $scope.haeOtsikot = function()
 	 {
 		var otsikkoLupaus = RestFactory.haeOtsikot();
 		otsikkoLupaus.then(function(response){
 			$scope.otsikot = response;
+			for (var i = 0; i < $scope.otsikot.length; i++)
+			{
+				$scope.style[i] = false;
+			}
 			//console.log("Haku tehty!", response);
 		}, function(error){
 			console.log("OtsikkoHaku Error: ", error);
@@ -34,7 +40,7 @@ angular.module("SaatietoApp").controller("SaatietoCtrl", function($scope, $http,
 			"jarjestaja": FilterService.jarjestaja,
 			"jarjestys": FilterService.jarjestys
 		};
-		console.log("Filters JSON: ", filters);
+		//console.log("Filters JSON: ", filters);
 		// Lähetetään säänhakupyyntö annetuilla parametreillä:
 		var saatietoLupaus = RestFactory.haeSaatiedot(filters);
 		
@@ -53,9 +59,9 @@ angular.module("SaatietoApp").controller("SaatietoCtrl", function($scope, $http,
 	 $scope.haeSaatiedot();
 	 
 	 // Muuttaa taulukon järjestyksen.
-	 $scope.sortBy = function(clickedOtsikko)
+	 $scope.sortBy = function(clickedOtsikko, index)
 	 {
-		 console.log("Klikattu otsikko: ", clickedOtsikko);
+		 //console.log("Klikattu otsikko: ", clickedOtsikko);
 		 // Tarkistaa aluksi onko klikattu otsikko sama kuin viimeksi klikattu.
 		 if (clickedOtsikko === FilterService.jarjestaja)
 		 {
@@ -71,6 +77,14 @@ angular.module("SaatietoApp").controller("SaatietoCtrl", function($scope, $http,
 			 // ja järjestykseksi ASC.
 			FilterService.jarjestaja = clickedOtsikko;
 			FilterService.jarjestys = "ASC";			 
+		 }
+		 
+		 for (var i = 0; i < $scope.otsikot.length; i++)
+		 {
+			 if (i != index)
+			 {
+				 $scope.style[i] = false;
+			 }
 		 }
 		 
 		 // Kutsutaan tiedot uudestaan uusilla järjestyksillä.

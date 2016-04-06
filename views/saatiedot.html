@@ -2,8 +2,7 @@
 		<!-- Säätilastotiedot taulukko -->		
 			<table class="table table-striped" id="saatiedotTaulukko">
 				<tr class="title">
-				<td ng-repeat="otsikko in otsikot" ng-click="sortBy(otsikko.COLUMN_NAME)">{{otsikko.COLUMN_NAME}}</td>
-				</tr>
+				<td ng-repeat="otsikko in otsikot track by $index" ng-click="sortBy(otsikko.COLUMN_NAME, $index); style[$index]=true" ng-class="{'selected_title' : style[$index]}">{{otsikko.COLUMN_NAME}}</td>
 				</tr>
 				<tr ng-repeat="saatieto in saatiedot" class="table_data">
 					<td>{{saatieto.id}}</td>

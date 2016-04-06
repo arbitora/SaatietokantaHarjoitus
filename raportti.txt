@@ -1,3 +1,5 @@
+﻿// 13i224 - Tommi Jokinen
+
 Päivämäärä: Sunnuntai 3.4.2016
 Klo: 15:00 - 18:00
 Tunnit yht: 3h
@@ -5,7 +7,7 @@ Tiedot:
 Bootstrap .html tiedosto jossa taulukko formatoitu kohdilleen
 ja Slim-PHP Framework pohja aseteltu. JSON filter asetusten pohja suunnittelu.
 
-Päivämäärä: Sunnuntai 4.4.2016
+Päivämäärä: Maanantai 4.4.2016
 Klo: 1:00 - 9:00
 Tunnit yht: 8h
 Tiedot:
@@ -15,7 +17,7 @@ pohja toiminnot valmiina toiminnassa.
 GitHub lisätty:
 https://github.com/arbitora/SaatietokantaHarjoitus
 
-Päivämäärä: Sunnuntai 4.4.2016
+Päivämäärä: Maanantai 4.4.2016
 Klo: 21:00 - 08:00
 Tunnit yht: 11h
 Tiedot:
@@ -26,12 +28,15 @@ Säätiedot ja säätilasto näkymät toimintakunnossa.
 DatePickerin ihmettelyä, vaihtotoiseen datepickeriin.
 Varoitus viesti datepickerin vääristä valinnoista.
 
-Päivämäärä: Sunnuntai 5.4.2016
-Klo: 16:30 - 01:00
-Tunnit yht: 8.5h
+Päivämäärä: Tiistai 5.4.2016
+Klo: 16:30 - 01:30
+Tunnit yht: 9h
 Tiedot:
 Korjattu toiminnot.
 Rajaus näkymän valuet rajaavat hakutuloksia sekä
 niiden valuet näkyvät vaikka poistuisi näkymästä.
 Rajauksia lisätessä antaa viestin joko onnistuneesta tai
-epäonnistuneesta syötöstä. Nollaus painike ottaa kaikki arvot pois.
+epäonnistuneesta syötöstä. Poista kaikki painikkeella poistetaan kaikki rajaukset.
+Tarkistus kaikista syötteistä että ne ovat oikein (oma Service josta löytyy funktioita).
+Otsikoiden klikkaus säätiedoissa muutttaa sen siniseksi ja alleviivatuksi, sekä muuttaa hiiren
+pointeriksi (etusormi osoittaa) ikoniksi .css -tiedoston avulla.

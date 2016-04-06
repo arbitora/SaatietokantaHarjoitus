@@ -33,9 +33,12 @@ angular.module("SaatietoApp").controller("BodyCtrl", function($scope, $location,
 	{
 		var pvmLupaus = RestFactory.haePvm();
 		pvmLupaus.then(function(response){
-			DateService.valittu_minPVM = response[0].MINpvm;
-			DateService.valittu_maxPVM = response[0].MAXpvm;
-			//console.log("PVM Haku tehty! ", response);
+			DateService.haettuMinPVM = response[0].MINpvm;
+			DateService.haettuMaxPVM = response[0].MAXpvm;
+			if (DateService.valittu_minPVM === null)
+				DateService.valittu_minPVM = response[0].MINpvm;
+			if (DateService.valittu_maxPVM === null)
+				DateService.valittu_maxPVM = response[0].MAXpvm;
 		}, function(error){
 			console.log("PVM Haku Error: ", error);
 		});

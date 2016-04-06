@@ -36,10 +36,20 @@ angular.module("SaatietoApp").service("DateService", function($filter){
 	
 	
 	// Yleiset p‰iv‰m‰‰r‰ muuttujat, joita voidaan k‰ytt‰‰ eri kontrolloreiden v‰lill‰.
-	var _valittu_minPVM = "2000-01-01";
-	var _valittu_maxPVM = $filter('date')(new Date(), 'yyyy-MM-dd');
-
+	var _haettuMinPVM = null;
+	var _haettuMaxPVM = null;
+	var _valittu_minPVM = null;
+	var _valittu_maxPVM = null;
+	
+	// Asettaa annetut min ja max haettuihin muuttujiin.
+	var _minPVM_disabled = true;
+	var _maxPVM_disabled = true;
+	
 	this.valittu_minPVM = _valittu_minPVM;
 	this.valittu_maxPVM = _valittu_maxPVM;
+	this.haettuMinPVM = _haettuMinPVM;
+	this.haettuMaxPVM = _haettuMaxPVM;
+	this.minPVM_disabled = _minPVM_disabled;
+	this.maxPVM_disabled = _maxPVM_disabled;
 	this.DateStampTODate = _DateStampTODate;
 });

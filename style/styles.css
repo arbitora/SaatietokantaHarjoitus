@@ -1,6 +1,17 @@
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+    cursor: pointer;
+}
+
 .title{
 	font-weight: bold;
 	font-size: 14px;
+}
+
+.selected_title{
+	color: blue;
+	text-decoration: underline;
 }
 
 .table-striped {
@@ -35,3 +46,14 @@ table {
 	position: relative;
     padding: 15px;
 }
+
+.full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+  }
+.partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+  }

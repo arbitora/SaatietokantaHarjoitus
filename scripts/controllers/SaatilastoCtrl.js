@@ -21,7 +21,7 @@ angular.module("SaatietoApp").controller("SaatilastoCtrl", function($scope, $htt
 			"minSademaara": FilterService.minSademaara,
 			"maxSademaara": FilterService.maxSademaara
 		};
-		console.log("Filters JSON: ", filters);
+		//console.log("Filters JSON: ", filters);
 		// Lähetetään säänhakupyyntö annetuilla parametreillä:
 		var saatilastoLupaus = RestFactory.haeSaatilastot(filters);
 		
